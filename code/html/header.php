@@ -1,4 +1,4 @@
 <header>
-    <h1>Corleone Calzone Pizza</h1>
-    <img src="../images/carleone%20calzone_LOGO.png" alt="websiteLogo">
+    <h1 id="websiteName">Corleone Calzone Pizza</h1>
+    <img id="websiteLogo" src="../images/carleone%20calzone_LOGO.png" alt="websiteLogo">
 </header>
