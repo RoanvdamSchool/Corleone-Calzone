@@ -1,3 +1,15 @@
-* {
-    background-color: #dadada;
+#gridProduct {
+    margin-top: 50px;
+    position: absolute;
+    background-color: yellow;
+    width: 80%;
+    margin-left: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 5%;
+}
+
+.productBox {
+    height: 500px;
+    background-color: #AE6767;
 }
