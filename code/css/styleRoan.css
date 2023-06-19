@@ -1,5 +1,5 @@
 #gridProduct {
-    margin-top: 50px;
+    margin-top: 200px;
     position: absolute;
     background-color: yellow;
     width: 80%;
@@ -10,6 +10,31 @@
 }
 
 .productBox {
-    height: 500px;
+    height: 450px;
     background-color: #AE6767;
+}
+.pizzaName {
+    margin-bottom: 0;
+}
+
+.pizzaImage {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.productDescriptionBox {
+    position: relative;
+    width: 80%;
+    height: 100px;
+    background-color: #CE3E3E;
+}
+
+.productDescription {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: nowrap;
+    width: 200px;
+    height: 100px;
 }
