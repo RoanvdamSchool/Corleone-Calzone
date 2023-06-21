@@ -1,6 +1,5 @@
 <?php
-include("head.php");
-include("header.php");
+include("headerMain.php");
 include("../php/databaseFunctions.php");
 ?>
 
@@ -11,5 +10,4 @@ include("../php/databaseFunctions.php");
 </div>
 <?php
 include("footer.php");
-include("bottom.php");
 ?>

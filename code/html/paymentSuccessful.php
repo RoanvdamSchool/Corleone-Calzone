@@ -1,6 +1,5 @@
 <?php
-include("head.php");
-include("header.php");
+include("headerMain.php)";
 ?>
 <div class="pizzaBackground">
     <div id="paymentReceiptBox" class="col-6 offset-3">
@@ -42,5 +41,5 @@ include("header.php");
     </div>
 </div>
 <?php
-include("bottom.php");
+include("footer.php");
 ?>
