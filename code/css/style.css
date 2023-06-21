@@ -6,7 +6,7 @@ html {
 body {
     background-color: #746F6F !important;  
 }
-header {
+#headerMain {
     background-color: #dadada;
     width: 100%;
     height: 125px;

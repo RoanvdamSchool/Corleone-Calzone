@@ -13,3 +13,8 @@
     </head>
     <body>
         
+        <header>
+            <h1 id="websiteNameLogin">Corleone Calzone Pizza</h1>
+            <img id="websiteLogoLogin" src="../images/carleone%20calzone_LOGO.png" alt="websiteLogo">
+        </header>
+        

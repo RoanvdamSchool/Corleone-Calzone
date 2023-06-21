@@ -12,7 +12,7 @@
         <link href="../css/styleRoan.css" rel="stylesheet">
     </head>
     <body>
-        <header>
+        <header id="headerMain">
             <h1 id="websiteName">Corleone Calzone Pizza</h1>
             <img id="websiteLogo" src="../images/carleone%20calzone_LOGO.png" alt="websiteLogo">
 
