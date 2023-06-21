@@ -48,6 +48,11 @@
     height: 50px;
 }
 
+.linkToBuy {
+    color: #000;
+    text-decoration-line: none;
+}
+
 /* styling for the product buying page */
 #buyProductBox {
     display: flex;
@@ -91,10 +96,16 @@
     width: 50%;
 }
 
-#submitButton {
+.totaal {
     float: left;
     margin-left: 10%;
-    margin-top: 30%;
+    margin-top: 20%;
+}
+
+#submitButton {
+    float: right;
+    margin-right: 45%;
+    margin-top: 5%;
     background-color: #DADADA;  
 }
 /* styling for the footer */
