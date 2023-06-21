@@ -4,9 +4,10 @@
   <title>Login Form</title>
 </head>
 <body>
-  <h2>Login Form</h2>
+<link href="../css/styleMax.css" rel="stylesheet">
+<div class="username"><h2>Login Form</h2>
   
-  <div><form>
+  <form>
     <label for="username">Username:</label><br>
     <input type="text" id="username" name="username"><br><br>
     
@@ -14,7 +15,7 @@
     <input type="password" id="password" name="password"><br><br>
     
     <input type="submit" value="Submit">
-  </form>
+  </form></div>
   
 </body>
 </html>
