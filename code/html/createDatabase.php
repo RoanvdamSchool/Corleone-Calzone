@@ -38,6 +38,7 @@ $sql = "CREATE TABLE IF NOT EXISTS products (
     product_id bigint AUTO_INCREMENT PRIMARY KEY,
     description TEXT,
     product_name varchar(50),
+    product_image varchar(255),
     price DECIMAL(10, 2)
 )
 ";
@@ -47,6 +48,7 @@ $sql = "CREATE TABLE IF NOT EXISTS ingredients (
     ingredient_id bigint AUTO_INCREMENT PRIMARY KEY,
     description TEXT,
     ingredient_name varchar(50),
+    ingredient_image varchar(255),
     price DECIMAL(10, 2),
     stock mediumint
 )
