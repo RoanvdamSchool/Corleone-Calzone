@@ -39,6 +39,7 @@ $sql = "CREATE TABLE IF NOT EXISTS products (
     description TEXT,
     product_name varchar(50),
     product_image varchar(255),
+    size varchar(7),
     price DECIMAL(10, 2)
 )
 ";
@@ -61,6 +62,7 @@ $sql = "CREATE TABLE IF NOT EXISTS invoice_line (
     product_id bigint,
     ingredient_id bigint,
     product_amount mediumint,
+    product_size varchar(7),
     ingredient_amount mediumint,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id),
@@ -76,4 +78,33 @@ $sql = "CREATE TABLE IF NOT EXISTS invoice (
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 )";
 $pdo->exec($sql);
+
+/* INGREDIENTS */
+/*$sql = "INSERT INTO `ingredients` (`ingredient_id`, `description`, `ingredient_name`, `price`, `stock`, `ingredient_image`) VALUES (NULL, 'yammie yammie,\r\noverheerlijke stukjes \r\nananas voor op jouw \r\npizza', 'ananasstukjes', '0.50', '100', '../images/ananasStukjes.jpg');";
+
+$pdo->exec($sql);
+
+$sql = "INSERT INTO `ingredients` (`ingredient_id`, `description`, `ingredient_name`, `price`, `stock`, `ingredient_image`) VALUES (NULL, 'stukjes salami voor op je pizza, komt in setjes van 5', 'salami', '1.00', '250', '../images/salami.jpg');";
+$pdo->exec($sql);
+
+$sql = "INSERT INTO `ingredients` (`ingredient_id`, `description`, `ingredient_name`, `price`, `stock`, `ingredient_image`) VALUES (NULL, '250 gram kaas voor als kaas op je bodem niet genoeg is', 'kaas', '0.75', '300', '../images/kaas.jpg');";
+$pdo->exec($sql);
+
+
+$sql = "INSERT INTO `ingredients` (`ingredient_id`, `description`, `ingredient_name`, `price`, `stock`, `ingredient_image`) VALUES (NULL, 'prosciutto prosciutto prosciutto prosciutto prosciutto prosciutto prosciutto prosciutto prosciutto prosciutto', 'prosciutto', '1.50', '50', '../images/prosciutto.jpg');";
+$pdo->exec($sql);*/
+
+/* PRODUCTS */
+/*$sql = "INSERT INTO `products` (`product_id`, `description`, `product_name`, `price`, `product_image`, ) VALUES (NULL, 'overheerlijke pizza met ananas!! zoals het hoort..', 'hawaii', '5.95', '../images/pizzaHawaii.jpg', );";
+
+$pdo->exec($sql);
+
+$sql = "INSERT INTO `products` (`product_id`, `description`, `product_name`, `price`, `product_image`) VALUES (NULL, 'pizza met salami, voor als je van wieners houdt.', 'salami', '3.95', '../images/pizzaSalami.jpg');";
+$pdo->exec($sql);
+
+$sql = "INSERT INTO `products` (`product_id`, `description`, `product_name`, `price`, `product_image`) VALUES (NULL, 'pizza met extra kaas, voor de echte Hollanders', 'margherita', '7.95', '../images/pizzaMargherita.jpg');";
+$pdo->exec($sql);
+
+$sql = "INSERT INTO `products` (`product_id`, `description`, `product_name`, `price`, `product_image`) VALUES (NULL, 'pizza met prosciutto, echte Italiaanse pizza.', 'prosciutto', '10.95', '../images/pizzaProsciutto.jpg');";
+$pdo->exec($sql);*/
 ?>
