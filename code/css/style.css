@@ -1,7 +1,11 @@
 html {
    background-color: #746F6F; 
+    height: auto;
 }
 
+body {
+    background-color: #746F6F !important;  
+}
 header {
     background-color: #dadada;
     width: 100%;
@@ -19,5 +23,4 @@ header {
     width: 185px;
     right: 15px;
     top: 15px;
-    /*background-color: yellow;*/
 }
