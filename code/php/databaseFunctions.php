@@ -111,7 +111,7 @@ function showProduct() {
                     </section>
                     <section id="amount">
                         <label for="amount">hoeveelheid</label><br>
-                        <input type="number" name="amount" class="inputField">
+                        <input type="number" id="amountInputField" name="amount" class="inputField" oninput="getValue()">
                     </section>
                     <h2 class="totaal" id="totaalText">totaal: €<?=$product_price?></h2>
                     <input type="submit" value="zet in winkelwagen" id="submitButton">
@@ -123,7 +123,9 @@ function showProduct() {
             const totaalText = document.getElementById('totaalText');
             const radioButtons = document.querySelectorAll('input[type="radio"][name="size"]');
             let selectedValue = null;
-
+            var amountValue = 1;
+            var php = <?php echo $product_price; ?>;
+            
             radioButtons.forEach((radioButton) => {
                 radioButton.addEventListener('change', (event) => {
                     if (radioButton.checked) {
@@ -135,15 +137,12 @@ function showProduct() {
                             $product_price = $product['price']; 
                             $product_price += 0;
                             ?>;
-                            totaalText.innerHTML = "totaal: €<?=$product_price?>";
-                            console.log(<?=$product_price?>);
                         }
                         if (selectedValue == "large") {
                             <?php 
                             $product_price = $product['price'];     
                             $product_price += 1;
                             ?>;
-                            totaalText.innerHTML = "totaal: €<?=$product_price?>";
                             console.log(<?=$product_price?>);
                         }
                         if (selectedValue == "calzone") {
@@ -151,21 +150,39 @@ function showProduct() {
                             $product_price = $product['price'];    
                             $product_price += 2;
                             ?>;
-                            totaalText.innerHTML = "totaal: €<?=$product_price?>";
                             console.log(<?=$product_price?>);
                         }
                         if (selectedValue == null) {
                             <?php
-                                $product_price = $product['price']
+                                $product_price = $product['price'];
                             ?>;
-                            totaalText.innerHTML = "totaal: €<?=$product_price?>";
                         }
                     }
                 });
             });
+            
+            function getValue() {
+                var inputField = document.getElementById("amountInputField");
+                var amountValue = inputField.value;
+                if (amountValue == null) {
+                    amountValue = 1;
+                };
+                //console.log(php);
+                radioButtons.forEach((radioButton) => {
+                    radioButton.addEventListener('change', (event) => {
+                        
+                    });
+                });
+                var calculatedValue = <?php echo $product_price; ?> * amountValue;
+                totaalText.innerHTML = "totaal: €" + calculatedValue.toFixed(2);
+                        
+                console.log(<?=$product_price?>); 
+            };
         </script>
 
         <?php
     }
 }
+
+
 ?>
