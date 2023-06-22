@@ -6,5 +6,47 @@
     width: 60vh;
     height: auto;
   }   
+  .signup-form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: relative;
+    color: white;
+}
+
+.signup-form h2 {
+    text-align: center;
+}
+
+.signup-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.signup-form input[type="submit"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.signup-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
 
  

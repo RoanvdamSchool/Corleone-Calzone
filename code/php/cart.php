@@ -23,9 +23,9 @@ function shoppingCart() {
             $_SESSION["cart"] = [];
         }
         else {
-            if () {
+            // if () {
                 
-            }
+            // }
            array_push($_SESSION["cart"], [ "id" => $_POST['id'], "size" =>$_POST["size"], "amount" =>$_POST["amount"] ]);
             var_dump($_SESSION["cart"]);
         }

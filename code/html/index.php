@@ -3,6 +3,22 @@
     
     include("headerLogin.php");
 ?>
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Gebruikersnaam en wachtwoord ontvangen via het POST-verzoek
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  // Hash het wachtwoord
+  $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+  // Hier kun je de gehashte gebruikersnaam en wachtwoord opslaan in de database
+
+  // Redirect naar home.php of een andere pagina na succesvolle login
+  header('Location: home.php');
+  exit();
+}
+?>
 <div class="pizzaBackground"></div>
 <div class="username">
   <h2>Login Form</h2>
