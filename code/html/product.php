@@ -1,6 +1,5 @@
 <?php
 include("headerMain.php");
-include("../php/databaseFunctions.php");
 ?>
 <div id="buyProductBox" class="col-10 offset-1">
     <?php
@@ -9,4 +8,5 @@ include("../php/databaseFunctions.php");
 </div>
 <?php
 include("footer.php");
+shoppingCart();
 ?>

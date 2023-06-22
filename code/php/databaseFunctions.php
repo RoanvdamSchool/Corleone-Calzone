@@ -99,7 +99,8 @@ function showProduct() {
         </section>
         <section class="buyProductInfo">
             <h2 class="buyPizzaName">pizza <?=$product['product_name']?></h2>
-                <form action="home.php">
+                <form action="home.php" method="post">
+                    <input type="hidden" name="id" value="<?=$product['product_id']?>">
                     <section id="chooseSize">
                         <h4>kies grootte</h4>
                         <input type="radio" name="size" id="medium" value="medium">
@@ -113,8 +114,9 @@ function showProduct() {
                         <label for="amount">hoeveelheid</label><br>
                         <input type="number" id="amountInputField" name="amount" class="inputField" oninput="getValue()">
                     </section>
+                    <input type="hidden" name="action" value="setInCart">
                     <h2 class="totaal" id="totaalText">totaal: €<?=$product_price?></h2>
-                    <input type="submit" value="zet in winkelwagen" id="submitButton">
+                    <input type="submit" name="setInCart" value="zet in winkelwagen" id="submitButton">
                 </form>
         </section>
 

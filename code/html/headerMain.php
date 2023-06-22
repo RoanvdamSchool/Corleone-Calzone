@@ -1,3 +1,8 @@
+<?php
+include("../php/functions.php");
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
     <head>
@@ -19,4 +24,5 @@
             <a href="home.php">home</a>
             <a href="shoppingCart.php">winkelwagen</a>
             <a href="profile.php">profiel</a>
+            <a href="../php/logout.php">logout</a>
         </header>

@@ -1,6 +1,5 @@
 <?php
 include("headerMain.php");
-include("../php/databaseFunctions.php");
 ?>
 
 <div id="gridProduct">

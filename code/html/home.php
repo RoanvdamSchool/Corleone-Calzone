@@ -1,6 +1,5 @@
 <?php
 include("headerMain.php");
-include("../php/databaseFunctions.php");
 ?>
 
 <div id="gridProduct">
@@ -10,4 +9,5 @@ include("../php/databaseFunctions.php");
 </div>
 <?php
 include("footer.php");
+shoppingCart();
 ?>
