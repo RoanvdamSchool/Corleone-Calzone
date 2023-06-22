@@ -1,9 +1,9 @@
-
+<div class="pizzaBackground"></div>
 <?php
     
     include("headerLogin.php");
 ?>
-<div class="pizzaBackground">
+
 <div class="username"><h2>Login Form</h2>
   
 <form>
@@ -15,7 +15,7 @@
   
   <input type="submit" value="Submit">
 </form></div>
-</div>
+
 <?php
     include("bottom.php");
 ?>
