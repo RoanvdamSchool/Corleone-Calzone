@@ -5,6 +5,7 @@ html {
 
 body {
     background-color: #746F6F;  
+    z-index: -2;
 }
 #headerMain {
     background-color: #dadada;

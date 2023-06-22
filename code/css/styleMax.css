@@ -1,6 +1,10 @@
 
   .username {
     position: relative;
+    color: white;
+    left: 30vh;
+    width: 60vh;
+    height: auto;
   }   
 
  
