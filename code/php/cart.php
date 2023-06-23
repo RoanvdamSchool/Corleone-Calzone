@@ -22,6 +22,7 @@ function checkIfItemIsInCart() {
                 $item['amount'] += intval($_POST['amount']);
                 echo "<script>alert('product bestaat al')</script>";
                 $isNewItem = false;
+                break;
             }
         }
         if ($isNewItem && isset($_POST['id']) && isset($_POST['size']) && isset($_POST['amount']) ) {
@@ -50,6 +51,7 @@ function shoppingCart() {
 }
 
 function printShoppingCart() {
+    $totalPrice = 0.00;
     $pdo = pdoObjectCart('corcalzpizza');
     $sql = "SELECT * FROM products WHERE product_id = :product_id";
     $stmt = $pdo->prepare($sql);
@@ -59,6 +61,7 @@ function printShoppingCart() {
         
         $products = $stmt->fetch(PDO::FETCH_ASSOC);
         $price = $products['price'] * $item['amount'];
+        $totalPrice +=$price;
         ?>
         <div class="shoppingCartItem">
             <img class="shoppingCartItemImage" src="<?=$products['product_image']?>">
@@ -72,6 +75,14 @@ function printShoppingCart() {
         </div>
         <?php
     }
+    ?>
+    <a href="ingredient.php">extra opties</a>
+        <h1 class="shoppingCartItemPrice">totale prijs: €<?=number_format($totalPrice, 2, '.', '');?></h1>
+        
+        <form action="paymentSuccessful.php" method="post">
+            <input type="submit" value="betaal">
+        </form>
+    <?php
 }
 
 ?>
