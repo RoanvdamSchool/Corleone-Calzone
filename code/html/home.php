@@ -1,5 +1,8 @@
 <?php
 include("headerMain.php");
+
+if ($_SESSION['user'] == null) header('Location: index.php');
+
 ?>
 
 <div id="gridProduct">
