@@ -44,15 +44,7 @@ function shoppingCart() {
             $_SESSION["cart"] = [];
         }
         else {
-<<<<<<< HEAD
             checkIfItemIsInCart();
-=======
-            // if () {
-                
-            // }
-           array_push($_SESSION["cart"], [ "id" => $_POST['id'], "size" =>$_POST["size"], "amount" =>$_POST["amount"] ]);
-            var_dump($_SESSION["cart"]);
->>>>>>> cb5e90b66a6f302a31782ac80e95f429f6940d2f
         }
     }
 }
