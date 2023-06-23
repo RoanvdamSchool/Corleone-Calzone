@@ -26,17 +26,33 @@
 </html>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include("../php/databaseFunctions.php");
+  
+    if (!isset($_POST['username']) || !isset($_POST['password'])) {
+      header('Refresh:0');
+    }
+
     $username = $_POST["username"];
     $password = $_POST["password"];
-
-    // Process the submitted data
-    // ...
-
-    // Example code for hashing the password
+    
     $hashed_passwd = password_hash("tJ8!kE5}vE4^cV8<" . $password . "pX6jaQ2@fS5/rB2)", CRYPT_SHA256);
-    echo $hashed_passwd;
-    header("Location: home.php");
-    exit();
+
+    $pdo = pdoObject('corcalzpizza');
+    $query = "
+        INSERT INTO `users` (user_name, password)
+        VALUES (:user, :password);
+    ";
+    $sto = $pdo->prepare($query);
+    try {
+        $sto->execute([
+            ':user' => $username,
+            ':password' => $hashed_passwd
+          ]);
+    } catch (PDOException $e) {
+        die($e);
+    }
+
+    header("Location: index.php");
 }
 ?>
 
