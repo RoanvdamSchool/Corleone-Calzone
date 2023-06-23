@@ -1,8 +1,13 @@
 html {
    background-color: #746F6F; 
+    height: auto;
 }
 
-header {
+body {
+    background-color: #746F6F;  
+    z-index: -2;
+}
+#headerMain {
     background-color: #dadada;
     width: 100%;
     height: 125px;
@@ -19,5 +24,4 @@ header {
     width: 185px;
     right: 15px;
     top: 15px;
-    /*background-color: yellow;*/
 }

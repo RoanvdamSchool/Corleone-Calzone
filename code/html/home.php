@@ -1,22 +1,16 @@
 <?php
-include("head.php");
-include("header.php");
+include("headerMain.php");
+
+if ($_SESSION['user'] == null) header('Location: index.php');
+
 ?>
 
 <div id="gridProduct">
-    <div class="productBox">
-
-    </div>
-    <div class="productBox">
-
-    </div>
-    <div class="productBox">
-
-    </div>
-    <div class="productBox">
-
-    </div>
+    <?php
+    printProduct();
+    ?>
 </div>
 <?php
 include("footer.php");
+shoppingCart();
 ?>

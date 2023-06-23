@@ -1,15 +1,222 @@
+/* styling for the products */
 #gridProduct {
-    margin-top: 50px;
+    margin-top: 200px;
     position: absolute;
-    background-color: yellow;
     width: 80%;
+    height: auto;
     margin-left: 10%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
     column-gap: 5%;
+    grid-row-gap: 3%;
+    overflow-y: auto;
+    height: 600px;
 }
 
 .productBox {
-    height: 500px;
+    height: 450px;
     background-color: #AE6767;
+    border-radius: 20px 20px 0 0;
+}
+.pizzaName {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.pizzaImage {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 20px 20px 0 0;
+}
+
+.productDescriptionBox {
+    position: relative;
+    width: 80%;
+    height: 200px;
+    margin-left: 10%;
+    background-color: #CE3E3E;
+}
+
+.productDescription {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: nowrap;
+    width: 200px;
+    height: 50px;
+}
+
+.linkToBuy {
+    color: #000;
+    text-decoration-line: none;
+}
+
+/* styling for the product buying page */
+#buyProductBox {
+    display: flex;
+    margin-top: 200px;
+    position: absolute;
+    background-color: #AE6767;
+    height: 500px;
+}
+
+#buyProductImage {
+    width: 40%;
+    height: 300px;
+}
+
+.buyProductImage {
+    width: 100%;
+    height: 100%;
+}
+
+.buyProductInfo {
+    width: 60%;
+}
+
+.buyPizzaName {
+    text-align: center;
+    margin-bottom: 20%;
+}
+
+#chooseSize {
+    float: left;
+    margin-left: 10%;
+}
+
+#amount {
+    float: right;
+    margin-right: 10%;
+}
+
+.inputField {
+    background-color: #DADADA;
+    width: 50%;
+}
+
+.totaal {
+    float: left;
+    margin-left: 10%;
+    margin-top: 20%;
+}
+
+#submitButton {
+    float: right;
+    margin-right: 45%;
+    margin-top: 5%;
+    background-color: #DADADA;  
+}
+/* styling for the footer */
+footer {
+    position: absolute;
+    display: flex;
+    top: 115%;
+    width: 100%;
+    height: 150px;
+    background-color: #dadada;
+}
+
+.copyright {
+    width: 60%;
+    text-align: center;
+}
+
+#contactSection {
+    width: 20%;
+}
+
+#followUs {
+    width: 20%;
+}
+
+/* background pizza image*/
+.pizzaBackground {
+    background-image: url("../images/backgroundImage.jpeg");
+    background-repeat: no-repeat; background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+#shoppingCartContainer {
+    position: absolute;
+    margin-top: 200px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+.shoppingCartItem {
+    width: 60%;
+    height: 180px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+    'image image name name name name'
+    'image image price price amount amount'
+    'image image price price amount amount';
+}
+
+.shoppingCartItemImage {
+    grid-area: image;
+    width: 100%;
+    height: 180px;
+}
+
+.shoppingCartItemName {
+    grid-area: name;
+    text-align: center;
+    color: #fff;
+}
+
+.shoppingCartItemPrice {
+    width: 100%;
+    grid-area: price;
+    color: #fff;
+    float: left;
+}
+
+.shoppingCartItemAmount {
+    grid-area: amount;
+    justify-content: center;
+}
+
+#paymentReceiptBox {
+    position: absolute;
+    margin-top: 200px;
+    height: 600px;
+    background-color: #AE6767;
+}
+
+.paymentReceiptText {
+    text-align: center;
+}
+
+.paymentReceiptInfoBox {
+    width: 80%;
+    margin-left: 10%;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.paymentReceiptInfoText {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#websiteNameLogin {
+    color: #fff;
+    font-size: 50px;
+    float: left;
+}
+
+#websiteLogoLogin {
+    margin-left: 5%;
+    width: 30%;
 }
