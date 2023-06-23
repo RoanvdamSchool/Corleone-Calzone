@@ -17,3 +17,6 @@
             <h1 id="websiteNameLogin">Corleone Calzone Pizza</h1>
             <img id="websiteLogoLogin" src="../images/carleone%20calzone_LOGO.png" alt="websiteLogo">
         </header>
+        <?php
+        if (session_status() === PHP_SESSION_NONE) session_start();
+        ?>

@@ -30,13 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   ]);
   $fetch = $sto->fetch(PDO::FETCH_ASSOC);
 
-  print_r($fetch);
+
 
   if (!empty($fetch) && password_verify("tJ8!kE5}vE4^cV8<" . $password . "pX6jaQ2@fS5/rB2)", $fetch['password'])) {
     header('Location: home.php');
   }
 
-  if (session_status() === PHP_SESSION_NONE) session_start();
+ 
   $_SESSION['user'] = null;
   $_SESSION['user']['id'] = $fetch['user_id'];
   $_SESSION['user']['username'] = $fetch['user_name'];
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if (session_status() === PHP_SESSION_NONE) session_start();
-print_r($_SESSION);
+
 ?>
 <div class="pizzaBackground"></div>
 <div class="username">
