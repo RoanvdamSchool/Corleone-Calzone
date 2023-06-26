@@ -1,5 +1,6 @@
 <?php
 include("headerMain.php");
+checkForIngredient();
 ?>
 
 <div id="gridProduct">

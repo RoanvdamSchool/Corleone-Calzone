@@ -134,7 +134,8 @@ footer {
 /* background pizza image*/
 .pizzaBackground {
     background-image: url("../images/backgroundImage.jpeg");
-    background-repeat: no-repeat; background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
     width: 100%;
     height: 100vh;
@@ -183,6 +184,9 @@ footer {
 .shoppingCartItemAmount {
     grid-area: amount;
     justify-content: center;
+}
+#linkToIngredients {
+    display: none;
 }
 
 #paymentReceiptBox {
