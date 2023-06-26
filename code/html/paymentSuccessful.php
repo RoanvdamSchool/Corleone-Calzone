@@ -41,5 +41,6 @@ include("headerMain.php");
     </div>
 </div>
 <?php
+payment();
 include("footer.php");
 ?>
