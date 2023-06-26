@@ -20,7 +20,7 @@
 <main>
     <div class="container_add_ingredient">
         <form action="add_ingredient.php" method="POST" enctype="multipart/form-data">
-        <h2>Add Ingredient</h2>    
+            <h2>Voeg Ingredient toe</h2>    
             <div class="form-group_add_ingredient">
                 <label for="image">Afbeelding:</label>
                 <input type="file" name="image" id="image_add_ingredient" required onchange="previewImage(event)">

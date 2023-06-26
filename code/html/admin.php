@@ -38,6 +38,7 @@
         <div class="cart_admin">
             <img id="hawaii_img" src="../images/pizzaHawaii.jpg" alt="hawaii">
             <p class="naam">hawaii</p>
+            p.
             <div class="Info">
                 <p>overheerlijke pizza met ananas!! zoals het hoort..</p>
             </div>
