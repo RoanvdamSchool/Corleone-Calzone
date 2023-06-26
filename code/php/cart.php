@@ -53,9 +53,9 @@ function shoppingCart() {
 
 function printShoppingCart() {
     $totalPrice = 0.00;
-$pdo = pdoObjectCart('corcalzpizza');
-$sql = "SELECT * FROM products WHERE product_id = :product_id";
-$stmt = $pdo->prepare($sql);
+    $pdo = pdoObjectCart('corcalzpizza');
+    $sql = "SELECT * FROM products WHERE product_id = :product_id";
+    $stmt = $pdo->prepare($sql);
 
     foreach ($_SESSION['cart'] as $item) {
         $stmt->bindParam(':product_id', $item['id']);
@@ -72,7 +72,14 @@ $stmt = $pdo->prepare($sql);
         if ($item['size'] == "calzone") {
             $price = $products['price'] + 2;
         }
-        $priceProduct = $price * $item['amount'];
+        //$priceProduct = $price * $item['amount'];
+        if ($item['amount'] >= 2) {
+            $priceProduct = $price + ($price *($item['amount']-1) / 2);
+        }
+        else {
+            $priceProduct = $price;
+        }
+        
         $totalPrice += $priceProduct;
         ?>
         <div class="shoppingCartItem">
@@ -121,18 +128,60 @@ $stmt = $pdo->prepare($sql);
         var_dump($_SESSION['cart']);
         payment();
 }
+function printPayment() {
+    $pdo = pdoObjectCart('corcalzpizza');
+    if (isset($_POST['pay']) ) {
+        if (!empty($_SESSION['cart']) ) {
+            $totalPrice = 0.00;
+            $pdo = pdoObjectCart('corcalzpizza');
+            $sql = "SELECT * FROM products WHERE product_id = :product_id";
+            $stmt = $pdo->prepare($sql);
+
+            foreach ($_SESSION['cart'] as $item) {
+                $stmt->bindParam(':product_id', $item['id']);
+                $stmt->execute();
+                
+                $products = $stmt->fetch(PDO::FETCH_ASSOC);
+                $price = 0.00;
+                if ($item['size'] == "medium") {
+                    $price = $products['price'];
+                }
+                if ($item['size'] == "large") {
+                    $price = $products['price'] + 1;
+                }
+                if ($item['size'] == "calzone") {
+                    $price = $products['price'] + 2;
+                }
+                $priceProduct = $price * $item['amount'];
+                $totalPrice += $priceProduct;
+                ?>
+                <div class="paymentReceiptInfoText">
+                    <h2><?=$item['amount']?>* <?=$products['product_name']?> <?=$item['size']?></h2>
+                    <h2><?=number_format($priceProduct, 2, '.', '')?></h2>
+                </div>
+                <?php
+            }
+            ?>
+            <h3>totaalprijs: €<?=$totalPrice?></h3>
+            <?php
+        }
+        else {
+            header('location: home.php');
+        }
+    }
+}
 
 function payment() {
-    $pdoconn = pdoObjectCart('corcalzpizza');
+    $pdo = pdoObjectCart('corcalzpizza');
     if (isset($_POST['pay']) ) {
         if (!empty($_SESSION['cart']) ) {
             try {
-                $stmt = $pdoconn->prepare("INSERT INTO invoice (user_id) VALUES (?)");
+                $stmt = $pdo->prepare("INSERT INTO invoice (user_id) VALUES (?)");
                 $stmt->execute([$_SESSION['user']['id']]);
 
                 foreach ($_SESSION['cart'] as $item) {
-                    $pdo = "INSERT INTO invoice_line (user_id, product_id, product_amount, product_size) VALUES (?, ? , ? , ?)";
-                    $stmt = $pdoconn->prepare($pdo);
+                    $sql = "INSERT INTO invoice_line (user_id, product_id, product_amount, product_size) VALUES (?, ? , ? , ?)";
+                    $stmt = $pdo->prepare($sql);
                     $stmt->execute([$_SESSION['user']['id'] , $item['id'] ,$item['amount'], $item['size']]);
                 }
                 unset($_SESSION['cart']);
