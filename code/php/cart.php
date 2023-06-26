@@ -52,37 +52,58 @@ function shoppingCart() {
 
 function printShoppingCart() {
     $totalPrice = 0.00;
-    $pdo = pdoObjectCart('corcalzpizza');
-    $sql = "SELECT * FROM products WHERE product_id = :product_id";
-    $stmt = $pdo->prepare($sql);
-    foreach ($_SESSION['cart'] as $item) {
-        $stmt->bindParam(':product_id', $item['id']);
-        $stmt->execute();
-        
-        $products = $stmt->fetch(PDO::FETCH_ASSOC);
-        $price = $products['price'] * $item['amount'];
-        $totalPrice +=$price;
-        ?>
-        <div class="shoppingCartItem">
-            <img class="shoppingCartItemImage" src="<?=$products['product_image']?>">
-            <h2 class="shoppingCartItemName"><?=$products['product_name']?> <?=$item['size']?></h2>
-            <h2 class="shoppingCartItemPrice">€<?=number_format($price, 2, '.', '');?></h2>
-            <form action="home.php" method="post" class="shoppingCartItemAmount">
-                <a href="shoppingCart.php?plus=1">delete</a>
-                <input type="number" name="amount" class="inputField" value="<?=$item['amount']?>">
-                <a href="shoppingCart.php?plus=1">add</a>
-            </form>
-        </div>
-        <?php
+$pdo = pdoObjectCart('corcalzpizza');
+$sql = "SELECT * FROM products WHERE product_id = :product_id";
+$stmt = $pdo->prepare($sql);
+
+foreach ($_SESSION['cart'] as $item) {
+    $stmt->bindParam(':product_id', $item['id']);
+    $stmt->execute();
+
+    $products = $stmt->fetch(PDO::FETCH_ASSOC);
+    $price = 0.00;
+    if ($item['size'] == "medium") {
+        $price = $products['price'];
     }
+    if ($item['size'] == "large") {
+        $price = $products['price'] + 1;
+    }
+    if ($item['size'] == "calzone") {
+        $price = $products['price'] + 2;
+    }
+    $priceProduct = $price * $item['amount'];
+    $totalPrice += $priceProduct;
     ?>
-    <a href="ingredient.php">extra opties</a>
-        <h1 class="shoppingCartItemPrice">totale prijs: €<?=number_format($totalPrice, 2, '.', '');?></h1>
-        
-        <form action="paymentSuccessful.php" method="post">
-            <input type="submit" value="betaal">
+    <div class="shoppingCartItem">
+        <img class="shoppingCartItemImage" src="<?=$products['product_image']?>">
+        <h2 class="shoppingCartItemName"><?=$products['product_name']?> <?=$item['size']?></h2>
+        <h2 class="shoppingCartItemPrice">p.st: €<?=number_format($price, 2, '.', '');?></h2>
+        <form action="home.php" method="post" class="shoppingCartItemAmount">
+            <a href="shoppingCart.php?plus=1">delete</a>
+            <input type="number" name="amount" class="inputField" id="amount_<?=$products['product_id']?>" value="<?=$item['amount']?>">
+            <a href="shoppingCart.php?plus=1">add</a>
         </form>
+    </div>
+    <script>
+        const amountInput_<?=$products['product_id']?> = document.getElementById("amount_<?=$products['product_id']?>");
+        amountInput_<?=$products['product_id']?>.addEventListener('input', (event) => {
+            let amountValue = event.target.value;
+            <?php
+                $item['amount'] = "<script>document.write(amountValue)</script>";
+            ?>
+            // Perform any desired actions with the updated amount value
+            console.log(amountValue);
+        });
+    </script>
     <?php
 }
+?>
+<a href="ingredient.php">extra opties</a>
+<h1 class="shoppingCartItemPrice" id="totalPrice">totale prijs: €<?=number_format($totalPrice, 2, '.', '')?></h1>
 
+<form action="paymentSuccessful.php" method="post">
+    <input type="submit" value="betaal">
+</form>
+<?php
+}
 ?>

@@ -115,7 +115,7 @@ function showProduct() {
                         <input type="number" id="amountInputField" name="amount" class="inputField" oninput="getValue()">
                     </section>
                     <input type="hidden" name="action" value="setInCart">
-                    <h2 class="totaal" id="totaalText">totaal: €<?=$product_price?></h2>
+                    <h2 class="totaal" id="totaalText">prijs per stuk: €<?=$product_price?></h2>
                     <input type="submit" name="setInCart" value="zet in winkelwagen" id="submitButton">
                 </form>
         </section>
@@ -139,12 +139,14 @@ function showProduct() {
                             $product_price = $product['price']; 
                             $product_price += 0;
                             ?>;
+                            totaalText.innerHTML = "prijs per stuk: €<?=$product_price?>";
                         }
                         if (selectedValue == "large") {
                             <?php 
                             $product_price = $product['price'];     
                             $product_price += 1;
                             ?>;
+                            totaalText.innerHTML = "prijs per stuk: €<?=$product_price?>";
                             console.log(<?=$product_price?>);
                         }
                         if (selectedValue == "calzone") {
@@ -152,6 +154,7 @@ function showProduct() {
                             $product_price = $product['price'];    
                             $product_price += 2;
                             ?>;
+                            totaalText.innerHTML = "prijs per stuk: €<?=$product_price?>";
                             console.log(<?=$product_price?>);
                         }
                         if (selectedValue == null) {
@@ -162,24 +165,6 @@ function showProduct() {
                     }
                 });
             });
-            
-            function getValue() {
-                var inputField = document.getElementById("amountInputField");
-                var amountValue = inputField.value;
-                if (amountValue == null) {
-                    amountValue = 1;
-                };
-                //console.log(php);
-                radioButtons.forEach((radioButton) => {
-                    radioButton.addEventListener('change', (event) => {
-                        
-                    });
-                });
-                var calculatedValue = <?php echo $product_price; ?> * amountValue;
-                totaalText.innerHTML = "totaal: €" + calculatedValue.toFixed(2);
-                        
-                console.log(<?=$product_price?>); 
-            };
         </script>
 
         <?php
