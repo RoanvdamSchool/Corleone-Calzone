@@ -103,7 +103,7 @@ function showProduct() {
                     <input type="hidden" name="id" value="<?=$product['product_id']?>">
                     <section id="chooseSize">
                         <h4>kies grootte</h4>
-                        <input type="radio" name="size" id="medium" value="medium">
+                        <input type="radio" name="size" id="medium" value="medium" checked='checked'>
                         <label for="medium">medium</label><br>
                         <input type="radio" name="size" id="large" value="large">
                         <label for="large">large</label><br>
@@ -112,7 +112,7 @@ function showProduct() {
                     </section>
                     <section id="amount">
                         <label for="amount">hoeveelheid</label><br>
-                        <input type="number" id="amountInputField" name="amount" class="inputField" oninput="getValue()">
+                        <input type="number" id="amountInputField" name="amount" class="inputField" oninput="getValue()" value="1">
                     </section>
                     <input type="hidden" name="action" value="setInCart">
                     <h2 class="totaal" id="totaalText">prijs per stuk: €<?=$product_price?></h2>

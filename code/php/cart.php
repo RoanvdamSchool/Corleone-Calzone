@@ -20,13 +20,11 @@ function checkIfItemIsInCart() {
         foreach ($_SESSION['cart'] as &$item) {
             if ($item["id"] == $_POST['id'] && $item['size'] == $_POST['size']) {
                 $item['amount'] += intval($_POST['amount']);
-                echo "<script>alert('product bestaat al')</script>";
                 $isNewItem = false;
                 break;
             }
         }
         if ($isNewItem && isset($_POST['id']) && isset($_POST['size']) && isset($_POST['amount']) ) {
-            echo "<script>alert('product is in winkelwagen')</script>";
             array_push($_SESSION["cart"], [ "id" => $_POST['id'], "size" => $_POST["size"], "amount" => intval($_POST["amount"]) ]);
             echo $_POST['id'] . " " . $_POST['size'] . " " . $_POST['amount'];
             $_POST['id'] = null;
@@ -34,8 +32,6 @@ function checkIfItemIsInCart() {
             $_POST['amount'] = null;
             $isNewItem = false;
         }
-    var_dump($_SESSION["cart"]);
-    var_dump($_SESSION);
 }
 
 function shoppingCart() {
@@ -51,8 +47,7 @@ function shoppingCart() {
     }
 }
 
-function printShoppingCart() {
-    $totalPrice = 0.00;
+function checkForPepperoniPizza() {
     $pdo = pdoObjectCart('corcalzpizza');
     $sql = "SELECT * FROM products WHERE product_id = :product_id";
     $stmt = $pdo->prepare($sql);
@@ -62,6 +57,52 @@ function printShoppingCart() {
         $stmt->execute();
 
         $products = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($products['product_name'] == 'hawaii' && $item['amount'] >= 10 && $item['size'] == 'large') {
+            ?>
+            <script>
+                const ingredientLink = document.getElementById('linkToIngredients');
+                ingredientLink.style.display = 'block';
+            </script>
+            <?php
+        }
+    }
+}
+
+
+function checkForIngredient() {
+    $pdo = pdoObjectCart('corcalzpizza');
+    $sql = "SELECT * FROM products WHERE product_id = :product_id";
+    $stmt = $pdo->prepare($sql);
+
+    foreach ($_SESSION['cart'] as $item) {
+        $stmt->bindParam(':product_id', $item['id']);
+        $stmt->execute();
+
+        $products = $stmt->fetch(PDO::FETCH_ASSOC);
+        /*if ($products['product_name'] != 'hawaii' || $item['amount'] < 10 || $item['size'] != 'large') {
+            header('Location: home.php');
+            exit; // Stop further execution after redirect
+        }*/
+    }
+}
+
+// function to print every item in shopping cart
+function printShoppingCart() {
+    $totalPrice = 0.00;
+    $pdo = pdoObjectCart('corcalzpizza');
+    $sqlProducts = "SELECT * FROM products WHERE product_id = :product_id";
+    $stmtProducts = $pdo->prepare($sqlProducts);
+
+    $sqlIngredient = "SELECT * FROM ingredients WHERE ingredient_id = :ingredient_id";
+    $stmtIngredients = $pdo->prepare($sqlIngredient);
+    foreach ($_SESSION['cart'] as $item) {
+        $stmtProducts->bindParam(':product_id', $item['id']);
+        $stmtProducts->execute();
+        $stmtIngredients->bindParam(':ingredient_id', $item['ingredient_id'] );
+        
+        $ingredients = $stmtIngredients->fetch(PDO::FETCH_ASSOC);
+        $products = $stmtProducts->fetch(PDO::FETCH_ASSOC);
+        
         $price = 0.00;
         if ($item['size'] == "medium") {
             $price = $products['price'];
@@ -118,16 +159,16 @@ function printShoppingCart() {
         }
     }
     ?>
-    <a href="ingredient.php">extra opties</a>
+    <a href="ingredient.php" id='linkToIngredients'>extra opties</a>
     <h1 class="shoppingCartItemPrice" id="totalPrice">totale prijs: €<?=number_format($totalPrice, 2, '.', '')?></h1>
 
     <form action="paymentSuccessful.php" method="post">
         <input type="submit" name='pay' value="betaal">
     </form>
 <?php
-        var_dump($_SESSION['cart']);
         payment();
 }
+
 function printPayment() {
     $pdo = pdoObjectCart('corcalzpizza');
     if (isset($_POST['pay']) ) {
