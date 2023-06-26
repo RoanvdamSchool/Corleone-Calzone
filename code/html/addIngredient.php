@@ -19,30 +19,27 @@
 </header>
 <main>
     <div class="container_add_ingredient">
-        <h2>Add Ingredient</h2>
         <form action="add_ingredient.php" method="POST" enctype="multipart/form-data">
+        <h2>Add Ingredient</h2>    
             <div class="form-group_add_ingredient">
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" required>
-            </div>
-            <div class="form-group_add_ingredient">
-                <label for="description">Description:</label>
-                <textarea name="description" id="description" rows="4" required></textarea>
-            </div>
-            <div class="form-group_add_ingredient">
-                <label for="price">Price:</label>
-                <input type="text" name="price" id="price" required>
-            </div>
-            <div class="form-group_add_ingredient">
-                <label for="stock">Stock:</label>
-                <input type="text" name="stock" id="stock" required>
-            </div>
-            <div class="form-group_add_ingredient">
-                <label for="image">Image:</label>
+                <label for="image">Afbeelding:</label>
                 <input type="file" name="image" id="image_add_ingredient" required onchange="previewImage(event)">
             </div>
             <div class="form-group image-preview" id="image-preview_add_ingredient">
                 <!-- Preview image will be displayed here -->
+            </div>
+            <div class="form-group_add_ingredient">
+                <label for="name">Naam:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group_add_ingredient">
+                <textarea placeholder="Omschrijving" name="description" id="description" rows="4" required></textarea>
+            </div>
+            <div class="form-group_add_ingredient">
+                <input placeholder="prijs" type="text" name="price" id="price" required>
+            </div>
+            <div class="form-group_add_ingredient">
+                <input placeholder="voorraad" type="text" name="stock" id="stock" required>
             </div>
             <div class="form-group_add_ingredient">
                 <input type="submit" value="Add Ingredient">
