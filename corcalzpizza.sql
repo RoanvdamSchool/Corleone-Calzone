@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 jun 2023 om 11:41
+-- Gegenereerd op: 26 jun 2023 om 23:09
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.6
 
@@ -123,7 +123,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `password`, `is_admin`, `created_at`) VALUES
-(4, 'max', '$2y$10$HayVs60NY8sPTnK/TKywZ.E.tyASeRzS62EEfII7MChpSQ0gk.2fe', 0, '2023-06-23 11:16:07'),
+(4, 'max', '$2y$10$oPANab/VEs/yFeNRM017xOB7dUuVFrU2FkPxtFJNuTxJ15A1WevNG', 0, '2023-06-23 11:16:07'),
 (5, 'roansmash', '$2y$10$RXgaedZV/5CfS7nQAy5FVePdBbK69JEI9DM..l.rj.au7h3MVjKXq', 0, '2023-06-23 11:25:32');
 
 -- --------------------------------------------------------
@@ -216,7 +216,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT voor een tabel `user_order_address`

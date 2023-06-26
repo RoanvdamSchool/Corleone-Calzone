@@ -1,6 +1,7 @@
 <?php
 include("../php/functions.php");
 session_start();
+echo "<script>console.log(" . json_encode(json_encode($_SESSION, JSON_PRETTY_PRINT)) . ");</script>";
 ?>
 
 <!DOCTYPE html>

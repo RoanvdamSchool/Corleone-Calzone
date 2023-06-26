@@ -58,9 +58,14 @@ if (session_status() === PHP_SESSION_NONE) session_start();
     <label for="password">Password:</label><br>
     <input type="password" id="password" name="password"><br><br>
 
-    <input type="submit" value="Submit">
+<div class="buttons">
+  <input type="submit" value="Submit">
+  <a href="signUp.php">Sign Up</a>
+  <a href="changePassword.php">Password vergeten</a>
+</div>
   </form>
 </div>
+
 
 <?php
     include("bottom.php");

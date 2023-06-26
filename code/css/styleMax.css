@@ -48,5 +48,11 @@
 .signup-form input[type="submit"]:hover {
     background-color: #45a049;
 }
-
- 
+.profile {
+    position: absolute;
+    margin-top: 200px;
+    
+}
+.color {
+    color:white;
+}
