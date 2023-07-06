@@ -2,6 +2,12 @@ html    {
     background-color: #746F6F; 
 }
 
+main {
+    background-image: url('../images/backgroundImage.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
 
 /* styling header */
 header  {
@@ -28,20 +34,24 @@ nav {
     text-align: center;
 }
 
-a   {
+/*a   {
     text-decoration: none;
     color: black;
     margin: 7%;
     padding: 0;
-}
+}*/
 
 /* admin page styling */
+
+.titleAdminTable {
+    text-align: center;
+    color: #fff;
+}
 
 .container_admin   {
     display: grid;
     grid-template-columns: 1fr 1fr;
     border: 1px solid black;
-    position: absolute;
     width: 80%;
     margin-left: 10%;
     margin-top: 10%;
@@ -50,55 +60,67 @@ a   {
     z-index: -3;
 }
 
-.cart_admin  {
+.pro_ing_item  {
     border: 1px solid black;
     margin: 0%;
     height: 300px;
-    position: relative;
-    z-index: -2;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+    'image image name name name name name'
+    'image image name name name name name'
+    'image image price price price price price'
+    'descr descr . adjust . delete .';
 }
 
-#ananas_stukjes_img, #hawaii_img    {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    z-index: -1;
+.pro_ing_image    {
+    width: 100%;
+    grid-area: image;
 }
 
-.Info {
+.description {
     background-color: #CE3E3E;
-    width: 250px;
-    height: 50px;
-    position: absolute;
-    margin-top: 150px;
     text-align: center;
+    grid-area: descr;
+    height: 75px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: nowrap;
 }
 
-.naam   {
+.pro_ing_name   {
     text-align: center;
     position: relative;
     color: black;
+    grid-area: name;
 }
 
-.pst    {
-    color: black;
-    width: 100px;
-    background-color: #CE3E3E;
-    margin: auto;
-    left: 300px;
-    top: 100px;
-    position: absolute;
+.price_per_pro_ing    {
+    color: #000;
+    text-align: center;
+    grid-area: price;
 }
 
-.pas_aan, .verwijder    {
+.adjust {
     background-color: #CE3E3E;
     text-decoration: none;
     color: black;
-    position: relative;
-    top: -50px;
-    left: 300px;
-    width: fit-content;
     z-index: 1;
+    height: 50px;
+    text-align: center;
+    grid-area: adjust;
+}
+
+.delete {
+    background-color: #CE3E3E;
+    text-decoration: none;
+    color: black;
+    height: 50px;
+    text-align: center;
+    z-index: 1;
+    grid-area: delete;
 }
 
 .aantal {
@@ -135,7 +157,7 @@ label {
     margin-left: 10%;
 }
 
-input[type="text"], textarea {
+/*input[type="text"], textarea {
     width: 80%;
     padding: 5px;
     border: 1px solid #ccc;
@@ -151,7 +173,7 @@ input[type="submit"] {
     border: none;
     border-radius: 3px; 
     margin-left: 10%;
-}
+}*/
 
 input[placeholder="prijs"]  {
     position: relative;

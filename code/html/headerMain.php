@@ -2,6 +2,8 @@
 include("../php/functions.php");
 session_start();
 echo "<script>console.log(" . json_encode(json_encode($_SESSION, JSON_PRETTY_PRINT)) . ");</script>";
+if ($_SESSION['user'] == null) header('Location: ../index.php');
+
 ?>
 
 <!DOCTYPE html>

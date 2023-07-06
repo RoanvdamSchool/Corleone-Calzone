@@ -1,6 +1,5 @@
 <?php
 include("headerMain.php");
-checkForIngredient();
 ?>
 
 <div id="gridProduct">
@@ -9,5 +8,6 @@ checkForIngredient();
     ?>
 </div>
 <?php
+shoppingCart();
 include("footer.php");
 ?>

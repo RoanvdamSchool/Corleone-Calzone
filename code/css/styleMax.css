@@ -8,16 +8,21 @@
   }   
   .signup-form {
     max-width: 300px;
-    margin: 0 auto;
+    margin: 250px 40%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    position: relative;
+    position: absolute;
     color: white;
 }
 
 .signup-form h2 {
     text-align: center;
+}
+
+.loginContainer {
+    position: absolute;
+    margin-top: 175px;
 }
 
 .signup-form label {

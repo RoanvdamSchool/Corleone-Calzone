@@ -2,4 +2,4 @@
 
 if (session_status() === PHP_SESSION_NONE) session_start();
 $_SESSION['user'] = null;
-header('Location: ../html/index.php');  
+header('Location: ../index.php');  

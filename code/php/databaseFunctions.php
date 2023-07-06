@@ -58,12 +58,19 @@ function printIngredients() {
             $ingredient_id = "${ingredient['ingredient_id']}";
             ?>
             <div class="productBox">
-                <img src="../images/<?=$ingredient['ingredient_image']?>" class="pizzaImage">
-                <h3 class="pizzaName">pizza <?=$ingredient['ingredient_name']?></h3>
-                <div class="productDescriptionBox">
-                    <p class="productDescription"><?=$ingredient['description']?></p>
-                    <p>prijs €<?=$ingredient['price']?></p>
-                </div>
+                <form method="post">
+                    <img src="../images/<?=$ingredient['ingredient_image']?>" class="pizzaImage">
+                    <h3 class="pizzaName">pizza <?=$ingredient['ingredient_name']?></h3>
+                    <div class="ingredientDescriptionBox">
+                        <p class="productDescription"><?=$ingredient['description']?></p>
+                        <p>prijs €<?=$ingredient['price']?></p>
+                    </div>
+                    <input type="hidden" name="ingr_id" value="<?=$ingredient_id?>">
+                    <label for="amount">hoeveelheid</label>
+                    <input type="number" name="amount">
+                    <input type="hidden" name="action" value="setInCart">
+                    <input type="submit" name="buy_ingr" value="zet in winkelwagen">
+                </form>
             </div>
             <?php
             
@@ -74,12 +81,24 @@ function printIngredients() {
     };
 };
 
+
+
 //sql statement to get the product based on product id
 function getProductId($product_id) {
     $pdo = pdoObject("corcalzpizza");
     $sql = "SELECT * FROM products WHERE product_id= :product_id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':product_id', $product_id);
+    
+    $stmt->execute();
+    return $stmt;
+}
+
+function getIngredientId($ingredient_id) {
+    $pdo = pdoObject("corcalzpizza");
+    $sql = "SELECT * FROM ingredients WHERE ingredient_id= :ingredient_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':ingredient_id', $ingredient_id);
     
     $stmt->execute();
     return $stmt;
@@ -166,10 +185,7 @@ function showProduct() {
                 });
             });
         </script>
-
         <?php
     }
 }
-
-
 ?>

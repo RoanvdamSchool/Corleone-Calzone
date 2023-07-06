@@ -37,3 +37,6 @@ if (isset($_POST)) {
         <input type='submit' value='Update'>
     </form>
 </main>
+<?php
+  include("footer.php");  
+?>

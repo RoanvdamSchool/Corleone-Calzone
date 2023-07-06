@@ -18,7 +18,7 @@
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-
+            <a href="../index.php">of login hier</a>
             <input type="submit" value="Sign Up">
         </form>
     </div>
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die($e);
     }
 
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 ?>
 

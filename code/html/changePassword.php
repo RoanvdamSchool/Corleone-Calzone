@@ -20,7 +20,7 @@ ini_set('display_errors', 1);
 
             <label for="password">new password:</label>
             <input type="password" id="password" name="password" required>
-
+            <a href="../index.php">terug naar inloggen</a>
             <input type="submit" value="set new password">
         </form>
     </div>

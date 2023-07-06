@@ -1,29 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/styleAnouk.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/style.css?v=<?php echo time(); ?>">
-    <title>Add Ingredient</title>
-</head>
-<body>
-<header>
-    <h1 id="websiteName">Add Ingredient</h1>
-    <nav>
-        <a class="a_addIngredient" href="admin.php">home</a>
-        <a class="a_addIngredient" href="orders.php">bestellingen</a>
-    </nav>
-    <img id="websiteLogo" src="../images/carleone%20calzone_LOGO.png" alt="websiteLogo">
-</header>
-<main>
+<?php
+include('headerAdmin.php');
+?>
     <div class="container_add_ingredient">
-        <form action="add_ingredient.php" method="POST" enctype="multipart/form-data">
-            <h2>Voeg Ingredient toe</h2>    
+        <form method="post" enctype="multipart/form-data">
+        <h2>Voeg Ingrediënt toe</h2>    
             <div class="form-group_add_ingredient">
                 <label for="image">Afbeelding:</label>
-                <input type="file" name="image" id="image_add_ingredient" required onchange="previewImage(event)">
+                <input type="file" name="image" accept="image/*" id="image_add_ingredient" required onchange="previewImage(event)">
             </div>
             <div class="form-group image-preview" id="image-preview_add_ingredient">
                 <!-- Preview image will be displayed here -->
@@ -42,11 +25,14 @@
                 <input placeholder="voorraad" type="text" name="stock" id="stock" required>
             </div>
             <div class="form-group_add_ingredient">
-                <input type="submit" value="Add Ingredient">
+                <input type="submit" name="submit" value="toevoegen">
             </div>
         </form>
     </div>
 </main>
+    <?php
+    addIngredient();
+    ?>
 
     <script>
         function previewImage(event) {

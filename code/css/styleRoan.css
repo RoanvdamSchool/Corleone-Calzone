@@ -39,6 +39,14 @@
     background-color: #CE3E3E;
 }
 
+.ingredientDescriptionBox {
+    position: relative;
+    width: 80%;
+    height: 125px;
+    margin-left: 10%;
+    background-color: #CE3E3E;
+}
+
 .productDescription {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -131,6 +139,15 @@ footer {
     width: 20%;
 }
 
+.pizzaBackgroundLogin {
+    background-image: url("images/backgroundImage.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
 /* background pizza image*/
 .pizzaBackground {
     background-image: url("../images/backgroundImage.jpeg");
@@ -222,5 +239,5 @@ footer {
 
 #websiteLogoLogin {
     margin-left: 5%;
-    width: 30%;
+    width: 25%;
 }
