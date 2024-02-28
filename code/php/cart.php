@@ -143,7 +143,7 @@ function printShoppingCart() {
         if (isset($item['id'])) {
             ?>
             <div class="shoppingCartItem">
-                <img class="shoppingCartItemImage" src="<?=$products['product_image']?>">
+                <img class="shoppingCartItemImage" src="../images/<?=$products['product_image']?>">
                 <h2 class="shoppingCartItemName"><?=$products['product_name']?> <?=$item['size']?></h2>
                 <h2 class="shoppingCartItemPrice">p.st: €<?=number_format($price, 2, '.', '');?></h2>
                 <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="shoppingCartItemAmount">
